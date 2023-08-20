@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Breast Cancer</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/static/Style/prac_cancer.css" />
+  </head>
+  <body>
+    <nav class="navbar navbara navbar-light navbar-static-top">
+      <div class="container-fluid head-container">
+        <span class="navbar-brand mb-3 h1 head-title mx-3 nav-head"
+          >Breast Cancer Prediction</span
+        >
+        <ul>
+          <a class="head-item1" href="{{url_for('landing')}}">Home</a>
+          <a class="head-item2" href="{{url_for('contact')}}">Contact Us</a>
+        </ul>
+      </div>
+    </nav>
+    <br />
+    <br />
+    <br />
+
+    <div class="heading-1 d-flex justify-content-center my-5">
+      <h1>Breast Cancer</h1>
+    </div>
+
+    <div
+      class="row justify-content-center align-items-center container-diabetes d-flex"
+    >
+      <div class="col-4 mx-md-3 p-md-2 img-2 m-sm-auto p-sm-auto">
+        <img
+          src="{{ url_for('static', filename='Images/cancer2.png') }}"
+          alt=""
+          class="img-fluid img-cancer-mid"
+        />
+      </div>
+      <div class="container-fluid col-6 mid-text col-lg-6 mx-2">
+        <p>
+          Breast cancer is a type of cancer that forms in the cells of the
+          breasts. It is the most common cancer in women worldwide, though it
+          can also affect men, albeit more rarely. Breast cancer occurs when
+          abnormal cells in the breast tissue begin to grow and divide
+          uncontrollably, forming a tumor. These cancerous cells can also invade
+          surrounding tissues or spread to other parts of the body through the
+          lymphatic system or bloodstream.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="heading-2 d-flex container-fluid justify-content-center mt-5 pt-3"
+    >
+      <h1>Risk Factors and Causes for Breast Cancer</h1>
+    </div>
+
+    <div class="container-fluid d-flex justify-content-center">
+      <div class="col-10">
+        <ul class="heading-2-list">
+          <li>Genetic mutations:</li>
+          <p>
+            Inherited mutations in certain genes, such as BRCA1 and BRCA2, significantly increase the risk of breast cancer. These genes are involved in repairing damaged DNA, and mutations can lead to uncontrolled cell growth and cancer formation.
+          </p>
+          <li>Hormonal factors:</li>
+          <p>
+            Estrogen and progesterone are hormones that regulate the development of breast tissue. Prolonged exposure to these hormones, especially in postmenopausal women, can increase the risk of breast cancer.
+          </p>
+          <li>Age:</li>
+          <p>
+            The risk of breast cancer increases with age, with the majority of cases occurring in women over the age of 50.
+          </p>
+          <li>Lifestyle factors:</li>
+          <p>
+            Obesity, excessive alcohol consumption, lack of physical activity, and a diet high in saturated fats have been linked to an increased risk of breast cancer.
+
+
+          </p>
+          <li>Personal history:</li>
+          <p>
+            A previous history of breast cancer or certain non-cancerous breast diseases may increase the risk.
+          </p>
+          
+          <p>
+            Early detection through regular mammograms and self-examinations can be crucial in improving treatment outcomes. Treatment options for breast cancer depend on various factors, including the stage of cancer, the presence of hormone receptors, and the patient's overall health. Common treatment modalities include surgery, radiation therapy, chemotherapy, hormonal therapy, targeted therapy, and immunotherapy.
+          </p>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="heading-1 heading-end d-flex justify-content-center">
+        <h1>Predict Whether you have Cancer or not!</h1>
+      </div>
+
+      <div class="heading-1 d-flex justify-content-center my-2">
+        <form action="{{url_for('cancer_form')}}" method="post">
+          <button type="submit" class="btn button-end">Predict Now</button>
+          </form>
+      </div>
+    </div>
+  </body>
+
+  <!-- JAVAscript Bootstrap -->
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"
+  ></script>
+</html>

@@ -1,0 +1,129 @@
+body {
+  background-color: rgba(216, 139, 139, 0.233);
+}
+
+.navbar-container {
+  width: 100vw;
+  height: 70px;
+  padding: 0%;
+  margin: 0%;
+}
+
+.navbara {
+  /* position: fixed; */
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgb(180, 78, 78);
+  height: 70px;
+}
+
+.navbara a {
+  text-decoration: none;
+  color: white;
+}
+
+.head-title {
+  font-size: 2rem;
+}
+.head-item1 {
+  font-size: 1.5em;
+  margin-right: 1.5rem;
+}
+
+.head-item2 {
+  font-size: 1.5em;
+  margin-right: 1em;
+}
+
+/* .container-form {
+  margin-top: 10rem;
+  width: 50vw;
+  max-height: 57em;
+  justify-content: center;
+  background-color: rgb(228, 140, 140);
+  padding: 2rem 2rem;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  margin-bottom: 4rem;
+} */
+
+.form-container{
+  max-width: 63vw;
+  background-color:rgb(228, 140, 140) ;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  padding: 1.7em 3rem 1em 3rem;
+  padding-bottom: 1em;
+  border-radius: 5px;
+  margin-bottom: 3em;
+}
+.form-container label{
+  margin-bottom: 0.3em;
+  margin-left: 0.1em;
+}
+
+.form-container .title {
+  font-size: 3em;
+  font-weight: bold;
+}
+
+/* .container-form .title {
+  font-size: 40px;
+  font-weight: bold;
+  position: relative;
+} */
+
+.content form .user-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 12px 0;
+}
+
+.details {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+form .user-details .input-box {
+  margin-bottom: 15px;
+  width: calc(100% / 2 - 20px);
+}
+
+form .input-box span.details {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.user-details .input-box input {
+  height: 45px;
+  width: 100%;
+  outline: none;
+  font-size: 13px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid rgb(74, 33, 33);
+  border-bottom-width: 2px;
+}
+
+.button {
+  font-size: 1.5rem;
+  height: 3rem;
+  width: 10rem;
+  margin: 2rem;
+  background-color: rgb(180, 78, 78);
+  color: rgb(230, 255, 230);
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  margin-left: 5rem;
+}
+
+.button:hover {
+  background-color: rgb(241, 113, 113);
+  color: rgb(0, 0, 0);
+}

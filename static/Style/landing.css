@@ -1,0 +1,208 @@
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  background-color: rgb(232, 226, 226);
+}
+
+.navbara {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  /* background-color: rgb(127, 145, 139); */
+  background-color: rgba(208, 179, 179, 0.974);
+  height: 70px;
+  z-index: 5;
+}
+
+.navbara a {
+  text-decoration: none;
+}
+
+.head-title {
+  font-size: 2em;
+  color: black;
+}
+
+.head-item1 {
+  font-size: 1.5em;
+  margin-right: 1.5rem;
+  color: black;
+}
+
+.head-item2 {
+  font-size: 1.5em;
+  margin-right: 1em;
+  color: black;
+}
+
+.navbara a:hover {
+  color: rgb(255, 255, 255);
+}
+
+.container-main {
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+}
+
+.img-main {
+  width: 100vw;
+  height: 90vh;
+  background-size: cover;
+  position: static;
+}
+
+.card-1 {
+  display: flex;
+  width: 45vw;
+  background-color: #ffffff;
+  box-shadow: 2px 2px 4px #555;
+  transition: 0.5s all ease-in-out;
+  margin: 1rem 0.7rem 1rem 2rem;
+  /* background: url(/static/Images/heart2.jpeg); */
+  background-size: cover;
+  border-radius: 20px;
+  padding: 2rem;
+  z-index: 3;
+  max-height: 284px;
+  justify-content: space-evenly;
+}
+
+.card-1:hover,
+.card-2:hover {
+  transform: scale(1.02);
+  transition-delay: 3ms;
+}
+
+.card-2 {
+  display: flex;
+  width: 45vw;
+  background-color: #fff;
+  box-shadow: 2px 2px 4px #555;
+  transition: 0.5s all ease-in-out;
+  margin: 1rem 0.7rem 2rem 2rem;
+  padding-right: 0%;
+  border-radius: 20px;
+  padding: 2rem;
+  max-height: 284px;
+  justify-content: space-evenly;
+}
+
+.card-1 img {
+  width: 50%;
+  
+}
+
+.img-card{
+  max-width:40%;
+  max-height: 100%;
+  border-radius: 2rem;
+}
+
+.img-card-2{
+  max-width:40%;
+  max-height: 100%;
+}
+
+.card-1-text h1 {
+  font-size: 2.4rem;
+  flex-direction: column;
+}
+
+.card-1-text{
+  min-width: 16rem;
+  margin-right: 2rem;
+}
+
+.card-2 img {
+  height: 220px;
+  margin-left: 2rem;
+  align-self: flex-end;
+  /* max-height: 50px; */
+}
+
+.cards {
+  margin: auto;
+  margin-bottom: 3rem;
+  justify-content: space-evenly;
+}
+
+.main-content {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.buttons {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 0.8rem;
+  border-radius: 1rem;
+  background-color: rgba(213, 101, 101, 0.974);
+}
+
+.buttons:hover {
+  transition: 0.3s all;
+}
+
+/* .img-heart{
+    width: 50vw;
+    height: 40vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0%;
+    margin: 0%;
+} */
+
+/* .img-diabetes{
+    width: 50vw;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0%;
+    margin: 0%;
+} */
+
+/* .img-heart:hover{
+    width: 60vw;
+    transition: 0.51s;
+} */
+
+.img-diabetes:hover {
+  width: 60vw;
+  transition: 0.51s;
+  animation-direction: reverse;
+}
+
+@media (max-width: 1370px) {
+  .cards {
+    flex-direction: column;
+  }
+
+  .card-1,
+  .card-2 {
+    width: 70vw;
+    margin: 1rem auto;
+  }
+}
+
+@media (max-width: 838px) {
+  .card-1-text h1{
+    font-size: 1.3rem;
+    width: 70vw;
+    margin: 1rem auto;
+  }
+
+  .img-card{
+    max-width:30%;
+    max-height: 90%;
+  }
+  
+  .img-card-2{
+    max-width:30%;
+    max-height: 9%;
+  }
+}

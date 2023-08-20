@@ -1,0 +1,163 @@
+body {
+    background-color: rgba(199, 172, 119, 0.216);
+  }
+  
+  .navbara {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #f6a707;
+    height: 70px;
+  }
+  
+  .navbara a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+  }
+  
+  .head-title {
+    font-size: 2rem;
+  }
+  .head-item1 {
+    font-size: 1.5em;
+    margin-right: 1.5rem;
+  }
+  
+  .head-item2 {
+    font-size: 1.5em;
+    margin-right: 1em;
+  }
+  
+  .heading-1 {
+    margin-top: 2em;
+    margin-bottom: 1em;
+  }
+  
+  .heading-1 h1 {
+    font-size: 2.5rem;
+  }
+  
+  img-1{
+    padding: 0%;
+    margin-bottom: 1rem;
+    /* visibility: hidden; */
+    display: none;
+  }
+  
+  .img-1 {
+    width: 100%;
+    max-height: 85vh;
+  }
+  
+  .img-cancer-mid {
+    border-radius: 2rem;
+    min-width: 220px;
+    box-shadow: 2px 2px 4px #555;
+  }
+  
+  .mid-text {
+    font-size: 1.7rem;
+    line-height: 3.5rem;
+  }
+  
+  .heading-2-list {
+    font-size: 1.5rem;
+    margin: 2rem 0;
+  }
+  .heading-2-list li {
+    font-weight: bold;
+  }
+  .button-end {
+    border-radius: 20px;
+    font-size: 2rem;
+    padding: 10px 15px;
+    cursor: pointer;
+    background-color: rgb(222, 183, 104);
+    color: rgb(48, 48, 48);
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.button-end:hover {
+    transition: 0.5s background-color;
+    background-color: rgb(232, 172, 53);
+    
+  }
+  /* .img-cancer-mid{
+      max-height: 30rem;
+  } */
+  
+  @media (max-width: 1450px) {
+    .nav-head {
+      font-size: 1.4rem;
+    }
+  
+    .head-item1,
+    .head-item2 {
+      font-size: 1.3rem;
+    }
+    
+    .mid-text {
+        font-size: 1.5rem;
+        line-height: 2.3rem;
+        margin-top: auto;
+      }
+      
+      .img-last {
+      max-width: 400px;
+  }
+  .heading-2-list {
+      font-size: 1.1rem;
+  }
+  }
+  
+  @media (max-width: 990px) {
+      .mid-text {
+          line-height: normal;
+          font-size: 1rem;
+      }
+      
+      .nav-head {
+          font-size: 1.2rem;
+        }
+        
+  
+      .head-item1,
+      .head-item2 {
+        font-size: 1.1rem;
+      }
+      .img-last {
+          max-width: 400px;
+      }
+      .heading-2-list {
+          font-size: 1.1rem;
+      }
+      
+      .heading-end h1{
+          font-size: 1.5rem;
+      }
+  }
+  
+  @media (max-width: 800px) {
+      .container-diabetes {
+          flex-direction: column-reverse;
+      }
+      .head-item1,
+      .head-item2 {
+        font-size: 1em;
+      }
+      
+      .nav-head {
+          font-size: 1rem;
+        }
+  
+        .heading-end h1{
+          font-size: 1.5rem;
+      }
+      
+    .button-end{
+      font-size: 1rem;
+    }
+  }
+  

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heart Diseases</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/static/Style/prac_heart.css" />
+  </head>
+  <body>
+    <nav class="navbar navbara navbar-dark navbar-static-top">
+      <div class="container-fluid head-container">
+        <span class="navbar-brand mb-3 h1 head-title mx-3 nav-head"
+          >Heart Disease Prediction</span
+        >
+        <ul>
+          <a class="head-item1" href="{{url_for('landing')}}">Home</a>
+          <a class="head-item2" href="{{url_for('contact')}}">Contact Us</a>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid container-img-1 px-0">
+      <img src="{{ url_for('static', filename='Images/heart1.jpg') }}" alt="" class="img-fluid img-1" />
+    </div>
+
+    <div class="heading-1 d-flex justify-content-center my-5">
+      <h1>HEART DISEASES</h1>
+    </div>
+
+    <div
+      class="row justify-content-center align-items-center container-diabetes d-flex"
+    >
+      <div class="col-4 mx-3 px-2 img-2">
+        <img
+          src="{{ url_for('static', filename='Images/heart4.jpg') }}"
+          alt=""
+          class="img-fluid img-heart-mid"
+        />
+      </div>
+      <div class="container-fluid col-5 mid-text col-lg-6 mx-0">
+        <p>
+          Heart diseases, also known as cardiovascular diseases, are a group of
+          medical conditions that affect the heart and blood vessels. These
+          conditions can lead to various problems with the heart's structure or
+          function, hindering its ability to pump blood effectively and supply
+          the body with oxygen and nutrients. Heart diseases can range from mild
+          and manageable conditions to severe and life-threatening situations
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="heading-2 d-flex container-fluid justify-content-center mt-5 pt-3"
+    >
+      <h1>Types of Heart diseases</h1>
+    </div>
+
+    <div class="container-fluid d-flex justify-content-center">
+      <div class="col-10">
+        <ul class="heading-2-list ">
+          <li>Coronary Artery Disease (CAD):</li>
+          <p>
+            CAD is the most prevalent type of heart disease. It occurs when the
+            coronary arteries, which supply oxygen-rich blood to the heart
+            muscle, become narrowed or blocked due to the buildup of fatty
+            deposits called plaque. This narrowing reduces blood flow to the
+            heart, leading to chest pain or discomfort known as angina. If a
+            plaque ruptures and causes a complete blockage of blood flow, it can
+            result in a heart attack.
+          </p>
+          <li>Coronary Artery Disease (CAD):</li>
+          <p>
+            CAD is the most prevalent type of heart disease. It occurs when the
+            coronary arteries, which supply oxygen-rich blood to the heart
+            muscle, become narrowed or blocked due to the buildup of fatty
+            deposits called plaque. This narrowing reduces blood flow to the
+            heart, leading to chest pain or discomfort known as angina. If a
+            plaque ruptures and causes a complete blockage of blood flow, it can
+            result in a heart attack.
+          </p>
+          <li>Heart Attack (Myocardial Infarction):</li>
+          <p>
+            A heart attack occurs when there is a sudden, complete blockage of
+            blood flow to a part of the heart muscle, usually due to the
+            formation of a blood clot on a plaque-damaged artery. The lack of
+            blood supply leads to the death of that portion of the heart muscle,
+            which can be life-threatening if not treated promptly.
+          </p>
+          <li>Heart Failure:</li>
+          <p>
+            Heart failure is a condition in which the heart becomes weakened and
+            unable to pump blood effectively. It can happen gradually over time,
+            often as a result of long-term conditions such as CAD, hypertension,
+            or heart valve problems. Heart failure means that the heart cannot
+            meet the body's demands for blood and oxygen, leading to symptoms
+            like shortness of breath, fatigue, and fluid retention.
+          </p>
+          <li>Heart Valve Disease:</li>
+          <p>
+            This condition involves problems with the heart's valves, which are
+            responsible for ensuring that blood flows in the right direction
+            through the heart chambers. Valvular diseases can include valve
+            stenosis (narrowing) or valve regurgitation (leaking).
+          </p>
+          <li>Congenital Heart Defects:</li>
+          <p>
+            These are heart abnormalities that are present at birth. They can
+            range from simple conditions with little impact on health to complex
+            defects that require immediate medical attention.
+          </p>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="heading-1 heading-end d-flex justify-content-center">
+            <h1>Predict Whether you have Heart Disease or not?</h1>
+        </div>
+
+        <div class="heading-1 d-flex justify-content-center my-2">
+          <form action="{{url_for('heart_form')}}" method="post">
+            <button type="submit" class="btn button-end">Predict Now</button>
+            </form>
+        </div>
+
+    </div>
+
+
+
+
+  </body>
+
+  <!-- JAVAscript Bootstrap -->
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"
+  ></script>
+</html>
