@@ -10,6 +10,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="{{ url_for('static', filename='Style/new_predict_cancer.css') }}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
 
@@ -22,6 +23,7 @@
           >
           <ul>
             <a class="head-item1" href="{{url_for('landing')}}">Home</a>
+            <a class="head-item1" href="{{url_for('Breast_Report')}}">Explore Data</a>
             <a class="head-item2" href="{{url_for('contact')}}">Contact Us</a>
           </ul>
         </div>
@@ -29,7 +31,7 @@
     </div>
 
     <div class="container-fluid form-container">
-      <form action="{{url_for('breast')}}" method="post">
+      <form id="predictionForm" action="{{url_for('breast')}}" method="post">
         <div class="row mb-2">
           <div class="title">
             <h2>Prediction</h2>
@@ -150,135 +152,32 @@
             />
           </div>
         </div>
-        <h3>Your Result: {{breast_text}}</h3>
-        <button class="button btn" type="submit">Predict</button>
+        <!-- <h3>Your Result: {{breast_text}}</h3> -->
+        <button id="btn" class="button btn" type="submit">Predict</button>
       </form>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10">
+    </script>
+    <script>
+
+        document.getElementById('predictionForm').addEventListener('submit', function (event) {
+            event.preventDefault();  // Prevent form from submitting automatically
+
+            Swal.fire({
+                title: 'Your Result Shows',
+                text: "{{breast_text}}",
+                icon: 'success',
+                confirmButtonText: 'Okay'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Manually submit the form after the user clicks 'Okay'
+                    this.submit();
+                }
+            });
+        });
+        // document.getElementById("btn").addEventListener("click", function () {
+        //     alert("Result Shows : " + "{{prediction_text}}");
+        // });
+    </script>
   </body>
 </html>
-
-
-<!-- <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Prediction</title>
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='Style/predict_cancer.css') }}"
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-
-  <body>
-    <nav class="navbara">
-      <div class="container-fluid">
-        <a class="head-main" href="{{url_for('cancer_form')}}"
-          >Breast Cancer Prediction</a
-        >
-
-        <ul>
-          <li>
-            <a class="head_text" href="{{url_for('landing')}}">Home</a>
-
-            <a class="head_text" href="{{url_for('contact')}}">Contact Us</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <div class="container">
-      <div class="title">Prediction</div>
-      <div class="content">
-        <form action="{{url_for('breast')}}" method="post">
-          <div class="user-details">
-            <div class="input-box">
-              <span class="details">Clump Thickness</span>
-              <input
-                type="text"
-                name="thickness"
-                placeholder="Enter Clump Thickness"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <span class="details">Uniformity of Cell Size</span>
-              <input
-                type="text"
-                name="cell_size"
-                placeholder="Enter Uniformity of Cell Size"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <span class="details">Uniformity of Cell Shape</span>
-              <input
-                type="text"
-                name="cell_shape"
-                placeholder="Enter Uniformity of Cell Shape"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <span class="details">Marginal Adhesion</span>
-              <input
-                type="text"
-                name="Adhesion"
-                placeholder="Enter Marginal Adhesion"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <span class="details">Single Epithelial Cell Size</span>
-              <input
-                type="text"
-                name="Single Epithelial Cell"
-                placeholder="Enter Single Epithelial Cell Size"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <span class="details">Number of Bare Nuclei</span>
-              <input
-                type="text"
-                name="Bare Nuclei"
-                placeholder="Enter Number of Bare Nuclei"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <span class="details">Number of Bland Chromatin</span>
-              <input
-                type="text"
-                name="Bland Chromatin"
-                placeholder="Enter number of Bland Chromatin"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <span class="details">Number of Normal Nucleoli</span>
-              <input
-                type="text"
-                name="Normal Nucleoli"
-                placeholder="Enter Number of Normal Nucleoli"
-                required
-              />
-            </div>
-
-            <div class="input-box">
-              <span class="details">Mitoses</span>
-              <input
-                type="text"
-                name="Mitoses"
-                placeholder="Enter current level"
-                required
-              />
-            </div>
-          </div>
-
-          <h3>Your Result: {{breast_text}}</h3>
-          <button class="button" type="submit">Predict</button>
-        </form>
-      </div>
-    </div>
-  </body>
-</html> -->

@@ -1,104 +1,93 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Prediction</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Prediction</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-    <link rel="stylesheet" href="/static/Style/heathcare.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
+  <link rel="stylesheet" href="/static/Style/heathcare.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
 
-  <body>
-    <!-- <nav class="navbara">
-      <div class="container-fluid">
-        <a class="head-main" href="{{url_for('insurance_main')}}"
-          >Healthcare Cost Calculator</a
-        >
-
-        <ul>
-          <li>
-            <a class="head_text" href="{{url_for('landing')}}">Home</a>
-
-            <a class="head_text" href="{{url_for('contact')}}">Contact Us</a>
-          </li>
-        </ul>
-      </div>
-    </nav> -->
-    <nav class="navbar navbara navbar-dark navbar-static-top">
-      <div class="container-fluid head-container">
-          <span class="navbar-brand mb-3 h1 head-title mx-3 nav-head" style="color: black;">Healthcare Cost Calculator</span>
-          <ul>
-              <a class="head-item1" href="{{url_for('landing')}}">Home</a>
-              <a class="head-item2" href="{{url_for('contact')}}">Contact Us</a>
-          </ul>
-      </div>
-  </nav>
-    <div class="container">
-      <div class="title">Prediction</div>
-      <div class="content">
-        <form action="{{url_for('insurance')}}" method="post">
-          <div class="user-details">
-            <div class="input-box">
-              <span class="details">Age</span>
-              <input
-                type="text"
-                name="age"
-                placeholder="Enter Age"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <span class="details">Gender</span>
-              <input
-                type="text"
-                name="sex"
-                placeholder="Enter Gender"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <span class="details">Body Mass Index(BMI)</span>
-              <input
-                type="text"
-                name="bmi"
-                placeholder="Enter BMI"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <span class="details">Number of Children</span>
-              <input
-                type="text"
-                name="children"
-                placeholder="Enter number of children"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <span class="details">Do you smoke?</span>
-              <input
-                type="text"
-                name="smoker"
-                placeholder="Yes or No"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <span class="details">Enter Region</span>
-              <input
-                type="text"
-                name="region"
-                placeholder="Enter Region"
-                required
-              />
-            </div>
-          </div>
-
-          <h3>Your Result: {{insurance_text}}</h3>
-          <button class="button" type="submit">Predict</button>
-        </form>
-      </div>
+<body>
+  <nav class="navbar navbara navbar-dark navbar-static-top">
+    <div class="container-fluid head-container">
+      <span class="navbar-brand mb-3 h1 head-title mx-3 nav-head" style="color: black;">Insurance
+        Calculator</span>
+      <ul>
+        <a class="head-item1" href="{{url_for('landing')}}">Home</a>
+        <a class="head-item1" href="{{url_for('Insurance_Report')}}">Explore Data</a>
+        <a class="head-item2" href="{{url_for('contact')}}">Contact Us</a>
+      </ul>
     </div>
-  </body>
+  </nav>
+  <div class="container">
+    <div class="title">Prediction</div>
+    <div class="content">
+      <form id="predictionForm" action="{{url_for('insurance')}}" method="post">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Age</span>
+            <input type="text" name="age" placeholder="Enter Age" required />
+          </div>
+          <div class="input-box">
+            <span class="details">Gender</span>
+            <!-- <input type="text" name="sex" placeholder="Enter Gender" required /> -->
+            <!-- <label for="cars">Select Gender</label> -->
+            <select id="sex" name="sex">
+              <option value="">Select an option</option>
+              <option value="1">Male</option>
+              <option value="0">Female</option>
+            </select>
+          </div>
+          <div class="input-box">
+            <span class="details">Body Mass Index(BMI)</span>
+            <input type="text" name="bmi" placeholder="Enter BMI" required />
+          </div>
+          <div class="input-box">
+            <span class="details">Number of Children</span>
+            <input type="text" name="children" placeholder="Enter number of children" required />
+          </div>
+          <div class="input-box">
+            <span class="details">Do you smoke?</span>
+            <select id="smoke" name="smoke">
+                <option value="">Select an option</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- <h3>Your Result: Rs {{insurance_text}}</h3> -->
+        <button id="btn" class="button" type="submit">Predict</button>
+      </form>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10">
+  </script>
+  <script>
+
+      document.getElementById('predictionForm').addEventListener('submit', function (event) {
+          event.preventDefault();  // Prevent form from submitting automatically
+
+          Swal.fire({
+              title: 'Your Result Shows',
+              text: "Rs {{insurance_text}}",
+              icon: 'success',
+              confirmButtonText: 'Okay'
+          }).then((result) => {
+              if (result.isConfirmed) {
+                  // Manually submit the form after the user clicks 'Okay'
+                  this.submit();
+              }
+          });
+      });
+      // document.getElementById("btn").addEventListener("click", function () {
+      //     alert("Result Shows : " + "{{prediction_text}}");
+      // });
+  </script>
+</body>
+
 </html>

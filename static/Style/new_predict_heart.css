@@ -48,6 +48,13 @@ body {
   margin-bottom: 4rem;
 } */
 
+.hello {
+    margin-bottom: 15px;
+      width: 520px;
+      height: 41px;
+      border-radius: 5px;
+}
+
 .form-container{
   max-width: 63vw;
   background-color:rgb(228, 140, 140) ;

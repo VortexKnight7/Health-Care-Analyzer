@@ -26,6 +26,22 @@ class Data(db.Model):
     def __repr__(self) -> str:
         return f"{self.sno} - {self.name}"
 
+@app.route('/heart_report', methods=['GET','POST'])
+def Heart_Report():
+    return render_template('Heart_Report.html')
+
+@app.route('/breast_report', methods=['GET','POST'])
+def Breast_Report():
+    return render_template('Breast_Report.html')
+
+@app.route('/diabetes_report', methods=['GET','POST'])
+def Diabetes_Report():
+    return render_template('Diabetes_Report.html')
+
+@app.route('/insurance_report', methods=['GET','POST'])
+def Insurance_Report():
+    return render_template('insurance_Report.html')
+
 @app.route('/', methods=['GET','POST'])
 def landing():
     return render_template('landing.html')
@@ -86,11 +102,11 @@ def contact():
 @app.route('/heart',methods=['GET','POST'])
 def heart():
     float_features = [float(x) for x in request.form.values()]
-    mean = [0,49.58494573,0,9.00308862,0,0,0,0,236.7215855,132.3524068,82.8934639,25.80200758,75.87892377,81.96675325]
-    std_dev = [1,8.572159925,1,11.92009359,1,1,1,1,44.59033432,22.03809664,11.9108496,4.080111062,12.02659635,23.95999819]
+    mean_value = [0,49.58494573,0,9.00308862,0,0,0,0,236.7215855,132.3524068,82.8934639,25.80200758,75.87892377,81.96675325]
+    std_dev_value = [1,8.572159925,1,11.92009359,1,1,1,1,44.59033432,22.03809664,11.9108496,4.080111062,12.02659635,23.95999819]
     reverse_scaled_features = []
     for i in range(len(float_features)):
-        reverse_scaled_features.append((float_features[i] - mean[i])/std_dev[i])
+        reverse_scaled_features.append((float_features[i] - mean_value[i])/std_dev_value[i])
     features = [np.array(reverse_scaled_features)]
     prediction = dicease.predict(features)
     if prediction == 1:

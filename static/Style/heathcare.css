@@ -13,6 +13,8 @@ body {
     text-align: justify;
   }
   
+
+
   /* .navbara {
     background-color: #ea9e6b;
     padding: 10px;
@@ -117,6 +119,13 @@ body {
     margin: 20px 0 12px 0;
   }
   
+  #sex,#smoke {
+    margin-bottom: 15px;
+      width: 295px;
+      height: 45px;
+      border-radius: 5px;
+  }
+
   .details {
     font-size: 20px;
     font-weight: 500;

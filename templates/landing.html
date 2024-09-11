@@ -1,132 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Medical Disease Predictor</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='Style/landing.css') }}"
-    />
-  </head>
 
-  <body>
-    <nav class="navbar navbara navbar-light navbar-static-top">
-      <div class="container-fluid head-container">
-        <span class="navbar-brand mb-3 h1 head-title mx-3 nav-head"
-          >Disease Prediction</span
-        >
-        <ul>
-          <div class="nav-list">
-            <a class="head-item1" href="{{url_for('landing')}}">Home</a>
-            <a class="head-item2" href="{{url_for('contact')}}">Contact Us</a>
-          </div>
-        </ul>
-      </div>
-    </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="{{ url_for('static', filename='Images/icon.jpg') }}" type="image/x-icon">k
+  <title>Medical Disease Predictor</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='Style/landing.css') }}" />
+</head>
 
-    <div class="container-fluid container-main d-flex">
-      <img
-        src="{{ url_for('static', filename='Images/medical.jpeg') }}"
-        alt=""
-        class="img-fluid img-main"
-      />
+<body>
+  <nav class="navbar navbara navbar-light navbar-static-top">
+    <div class="container-fluid head-container">
+      <span class="navbar-brand mb-3 h1 head-title mx-3 nav-head">Health Care Analyser</span>
+      <ul>
+        <div class="nav-list">
+          <a class="head-item1" href="{{url_for('landing')}}">Home</a>
+          <a class="head-item2" href="{{url_for('contact')}}">Contact Us</a>
+        </div>
+      </ul>
     </div>
+  </nav>
 
-    <div class="container-fluid main-content">
-      <div class="cards row p-2 mb-3 d-flex">
-        <div class="card-1">
-          <div
-            class="card-1-text justify-content-center align-items-center d-flex text-center"
-          >
-            <div class="heading">
-              <h1>Heart Disease Detector</h1>
-              <a class="btn btn-danger buttons" href="{{url_for('heart_main')}}"
-                >CLICK HERE</a
-              >
-            </div>
-          </div>
-          <img
-            src="{{ url_for('static', filename='Images/heart3.jpg') }}"
-            alt=""
-            class="img-fluid img-card"
-          />
-        </div>
-
-        <div class="card-2">
-          <div
-            class="card-1-text justify-content-center align-items-center d-flex text-center"
-          >
-            <div class="heading">
-              <h1>Diabetes Detector</h1>
-              <a
-                class="btn btn-danger buttons"
-                href="{{url_for('diabetes_main')}}"
-                >CLICK HERE</a
-              >
-            </div>
-          </div>
-          <img
-            src="{{ url_for('static', filename='Images/diabetes.png') }}"
-            alt=""
-            class="img-fluid img-card-2"
-          />
-        </div>
-      </div>
-
-      <div class="cards row">
-        <div class="card-1">
-          <div
-            class="card-1-text justify-content-center align-items-center d-flex text-center"
-          >
-            <div class="heading">
-              <h1>Breast Cancer Detector</h1>
-              <a
-                class="btn btn-danger buttons"
-                href="{{url_for('cancer_main')}}"
-                >CLICK HERE</a
-              >
-            </div>
-          </div>
-          <img
-            src="{{ url_for('static', filename='Images/cancer.png') }}"
-            alt=""
-            class="img-fluid img-card"
-          />
-        </div>
-
-        <div class="card-2">
-          <div
-            class="card-1-text justify-content-center align-items-center d-flex text-center"
-          >
-            <div class="heading">
-              <h1>Healthcare Cost Calculator</h1>
-              <a
-                class="btn btn-danger buttons"
-                href="{{url_for('insurance_main')}}"
-                >CLICK HERE</a
-              >
-            </div>
-          </div>
-          <img
-            src="{{ url_for('static', filename='Images/heathcare.png') }}"
-            alt=""
-            class="img-fluid img-card"
-          />
-        </div>
+  <div class="container-fluid container-main d-flex">
+    <div class="center_left">
+      
+      <div class="intro">
+        <h1 style="text-align: center; font-size: 120px;">Welcome</h1>
+        <br>
+        
+          Embrace the future of healthcare with Health-Care Analyser. We are paving a new dawn that transcends the
+          traditional boundaries of health predictions. We've utilized cutting-edge machine learning methods to create a
+          web page that can predict patients' health. Buckle up for a journey that's as exciting as it is unpredictable.
+        
       </div>
     </div>
 
-    <!-- <footer class="row footer-area">
+    <img src="{{ url_for('static', filename='Images/medical.jpeg') }}" alt="" class="img-fluid img-main" />
+  </div>
+
+  <div class="container-fluid main-content">
+    <div class="cards row p-2 mb-3 d-flex">
+      <div class="card-1">
+        <div class="card-1-text justify-content-center align-items-center d-flex text-center">
+          <div class="heading">
+            <h1>Heart Disease Detector</h1>
+            <a class="btn btn-danger buttons" href="{{url_for('heart_main')}}">CLICK HERE</a>
+          </div>
+        </div>
+        <img src="{{ url_for('static', filename='Images/heart3.jpg') }}" alt="" class="img-fluid img-card" />
+      </div>
+
+      <div class="card-2">
+        <div class="card-1-text justify-content-center align-items-center d-flex text-center">
+          <div class="heading">
+            <h1>Diabetes Detector</h1>
+            <a class="btn btn-danger buttons" href="{{url_for('diabetes_main')}}">CLICK HERE</a>
+          </div>
+        </div>
+        <img src="{{ url_for('static', filename='Images/diabetes.png') }}" alt="" class="img-fluid img-card-2" />
+      </div>
+    </div>
+
+    <div class="cards row">
+      <div class="card-1">
+        <div class="card-1-text justify-content-center align-items-center d-flex text-center">
+          <div class="heading">
+            <h1>Breast Cancer Detector</h1>
+            <a class="btn btn-danger buttons" href="{{url_for('cancer_main')}}">CLICK HERE</a>
+          </div>
+        </div>
+        <img src="{{ url_for('static', filename='Images/cancer.png') }}" alt="" class="img-fluid img-card" />
+      </div>
+
+      <div class="card-2">
+        <div class="card-1-text justify-content-center align-items-center d-flex text-center">
+          <div class="heading">
+            <h1>Insurance Calculator</h1>
+            <a class="btn btn-danger buttons" href="{{url_for('insurance_main')}}">CLICK HERE</a>
+          </div>
+        </div>
+        <img src="{{ url_for('static', filename='Images/heathcare.png') }}" alt="" class="img-fluid img-card" />
+      </div>
+    </div>
+  </div>
+
+  <!-- <footer class="row footer-area">
       <h4>Made By - Kartik and Harmanpreet Singh</h4>
     </footer> -->
 
-    <!-- <img src="/static/Images/heart2.jpeg" alt="" class="img-fluid img-heart" /> -->
-  </body>
+  <!-- <img src="/static/Images/heart2.jpeg" alt="" class="img-fluid img-heart" /> -->
+</body>
+
 </html>

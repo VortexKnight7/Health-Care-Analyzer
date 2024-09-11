@@ -11,19 +11,19 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="{{ url_for('static', filename='Style/new_predict_heart.css') }}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
     <div class="navbar-container">
       <nav class="navbar navbara navbar-dark d-flex">
         <div class="container-fluid head-container">
-          <a
-            class="navbar-brand mb-3 h1 head-title mx-3 nav-head"
-            href="{{ url_for('heart_main') }}"
-            >Heart Disease Prediction</a
+          <span class="navbar-brand mb-3 h1 head-title mx-3 nav-head"
+            >Heart Disease Prediction</span
           >
           <ul>
             <a class="head-item1" href="{{url_for('landing')}}">Home</a>
+            <a class="head-item1" href="{{url_for('Heart_Report')}}">Explore Data</a>
             <a class="head-item2" href="{{url_for('contact')}}">Contact Us</a>
           </ul>
         </div>
@@ -32,7 +32,7 @@
     <br />
     <br />
     <div class="container-fluid form-container">
-      <form action="{{url_for('heart')}}" method="post">
+      <form id="predictionForm" action="{{url_for('heart')}}" method="post">
         <div class="row mb-2">
           <div class="title">
             <h2>Prediction</h2>
@@ -40,14 +40,13 @@
         </div>
         <div class="row mb-4">
           <div class="form-group col-sm-10 col-md-6">
-            <label for="male" class="details">Gender</label>
-            <input
-              type="text"
-              name="male"
-              placeholder="Enter Gender"
-              class="form-control"
-              required
-            />
+            <span class="details">Gender</span>
+            <br>
+            <select class="hello" id="sex" name="sex">
+              <option value="">Select an option</option>
+              <option value="1">Male</option>
+              <option value="0">Female</option>
+            </select>
           </div>
           <div class="form-group col-sm-10 col-md-6">
             <label for="age" class="details">Age</label>
@@ -63,16 +62,13 @@
 
         <div class="row mb-4">
           <div class="form-group col-sm-10 col-md-6">
-            <label class="details" for="currentsmoker"
-              >Do you smoke currently?</label
-            >
-            <input
-              type="text"
-              name="currentsmoker"
-              class="form-control"
-              placeholder="Yes or No"
-              required
-            />
+            <span class="details">Do you smoke currently?</span>
+            <br>
+            <select class="hello" id="smoke" name="currentsmoke">
+              <option value="">Select an option</option>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
           </div>
           <div class="form-group col-sm-10 col-md-6">
             <label class="details" for="cig">How many cigarettes a day?</label>
@@ -88,53 +84,43 @@
 
         <div class="row mb-4">
           <div class="form-group col-sm-10 col-md-6">
-            <label class="details" for="bpmed"
-              >Do you take any BP medication?</label
-            >
-            <input
-              type="text"
-              name="bpmed"
-              class="form-control"
-              placeholder="Yes or No"
-              required
-            />
+            <span class="details">Do you take any BP medication?</span>
+            <br>
+            <select class="hello" id="bpmed" name="bpmed">
+              <option value="">Select an option</option>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
           </div>
           <div class="form-group col-sm-10 col-md-6">
-            <label class="details" for="prevalentsmoke"
-              >Any prevalent Stroke condition?</label
-            >
-            <input
-              type="text"
-              class="form-control"
-              name="prevalentsmoke"
-              placeholder="Yes or No"
-              required
-            />
+            <span class="details">Any prevalent Stroke condition?</span>
+            <br>
+            <select class="hello" id="prevalentsmoke" name="prevalentsmoke">
+              <option value="">Select an option</option>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
           </div>
         </div>
 
         <div class="row mb-4">
           <div class="form-group col-sm-10 col-md-6">
-            <label for="prevalenthyp" class="details"
-              >Are you hypertensive?</label
-            >
-            <input
-              type="text"
-              name="prevalenthyp"
-              class="form-control"
-              placeholder="Yes or No"
-              required
-            />
+            <span class="details">Are you hypertensive?</span>
+            <br>
+            <select class="hello" id="prevalenthyp" name="prevalenthyp">
+              <option value="">Select an option</option>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
           </div>
           <div class="form-group col-sm-10 col-md-6">
-            <label for="diabetes" class="details">Do you have Diabetes?</label>
-            <input
-              type="text"
-              name="diabetes"
-              class="form-control"
-              placeholder="Yes or No"
-              required
-            />
+            <span class="details">Do you have Diabetes?</span>
+            <br>
+            <select class="hello" id="diabetes" name="diabetes">
+              <option value="">Select an option</option>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
           </div>
         </div>
 
@@ -206,166 +192,32 @@
             />
           </div>
         </div>
-        <h3>Your Result: {{Heart_text}}</h3>
-        <button class="button btn" type="submit">Predict</button>
+        <!-- <h3>Your Result: {{Heart_text}}</h3> -->
+        <button id="btn" class="button btn" type="submit">Predict</button>
       </form>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10">
+    </script>
+    <script>
+
+        document.getElementById('predictionForm').addEventListener('submit', function (event) {
+            event.preventDefault();  // Prevent form from submitting automatically
+
+            Swal.fire({
+                title: 'Your Result Shows',
+                text: "{{Heart_text}}",
+                icon: 'success',
+                confirmButtonText: 'Okay'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Manually submit the form after the user clicks 'Okay'
+                    this.submit();
+                }
+            });
+        });
+        // document.getElementById("btn").addEventListener("click", function () {
+        //     alert("Result Shows : " + "{{prediction_text}}");
+        // });
+    </script>
   </body>
 </html>
-
-
-<!-- <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Prediction</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='Style/predict_heart.css') }}" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-
-  <body>
-    <nav class="navbara">
-      <div class="container-fluid">
-        <a class="head-main" href="{{url_for('heart_form')}}"
-          >Heart Disease Prediction
-
-        <ul>
-          <li>
-            <a class="head_text" href="{{url_for('landing')}}">Home</a>
-
-            <a class="head_text" href="{{url_for('contact')}}">Contact Us</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <div class="container">
-      <div class="title">Prediction</div>
-      <div class="content">
-        <form action="{{url_for('heart')}}" method="post">
-          <div class="user-details">
-            <div class="input-box">
-              <span class="details">Gender</span>
-              <input
-                type="text"
-                name="male"
-                placeholder="Enter Gender"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <span class="details">Age</span>
-              <input
-                type="text"
-                name="age"
-                placeholder="Enter Age"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <span class="details">Do you smoke currently?</span>
-              <input
-                type="text"
-                name="currentsmoker"
-                placeholder="Yes or No"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <span class="details">How many cigarettes a day?</span>
-              <input
-                type="text"
-                name="cig"
-                placeholder="Enter number of cigarettes"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <span class="details">Do you take any BP medication?</span>
-              <input
-                type="text"
-                name="bpmed"
-                placeholder="Yes or No"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <span class="details">Any prevalent Stroke condition?</span>
-              <input type="text" name="prevalentsmoke" placeholder="Yes or No" required />
-            </div>
-            <div class="input-box">
-              <span class="details">Are you hypertensive?</span>
-              <input type="text" name="prevalenthyp" placeholder="Yes or No" required />
-            </div>
-            <div class="input-box">
-              <span class="details">Do you have Diabetes?</span>
-              <input
-                type="text"
-                name="diabetes"
-                placeholder="Yes or No"
-                required
-              />
-            </div>
-
-            <div class="input-box">
-              <span class="details">Total cholesterol level</span>
-              <input
-                type="text"
-                name="totchol"
-                placeholder="Enter current level"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <span class="details">Systolic blood pressure</span>
-              <input
-                type="text"
-                name="sysbp"
-                placeholder="Enter value"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <span class="details">Diastolic blood pressure </span>
-              <input
-                type="text"
-                name="diabp"
-                placeholder="Enter value"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <span class="details">Body Mass Index(BMI)</span>
-              <input
-                type="text"
-                name="bmi"
-                placeholder="Enter BMI"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <span class="details">Heart Rate</span>
-              <input
-                type="text"
-                name="heartrate"
-                placeholder="Enter heart rate"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <span class="details">Glucose level </span>
-              <input
-                type="text"
-                name="glucose"
-                placeholder="Enter glucose level"
-                required
-              />
-            </div>
-          </div>
-
-          <h3>Your Result: {{Heart_text}}</h3>
-          <button class="button" type="submit">Predict</button>
-        </form>
-      </div>
-    </div>
-  </body>
-</html> -->
